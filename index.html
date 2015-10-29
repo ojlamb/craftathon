@@ -18,11 +18,35 @@
         <input type="text" ng-model="searchText">
         <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
       </form>
-      <ul>
-        <li ng-repeat="pharmacy in searchCtrl.searchResult.data | filter:searchText" >
-          <div>{{pharmacy}}</div>
-        </li>
-      </ul>
+    <table class="table table-bordered table-striped">
+
+    <thead>
+      <tr>
+        <td>
+          Name
+        </td>
+        <td>
+          NACS
+        </td>
+        <td>
+          Address
+        </td>
+        <td>
+          Telephone number
+        </td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="pharmacy in searchCtrl.searchResult.data | filter:searchText">
+        <td>{{ pharmacy[0] }}</td>
+        <td>{{ pharmacy[1] }}</td>
+        <td>{{pharmacy[2]}} {{pharmacy[5]}} {{pharmacy[6]}} {{ pharmacy[7] }}</td>
+        <td>{{ pharmacy[8]}}</td>
+      </tr>
+    </tbody>
+
+  </table>
     </div>
   </body>
 </html>
