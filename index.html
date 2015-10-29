@@ -4,49 +4,62 @@
     <meta charset="utf-8">
     <title>Serket App</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="index.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="js/app.js"></script>
     <script src="js/pharmFinderController.js"></script>
     <script src="js/pharmSearchFactory.js"></script>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js"></script>
+    <script src="https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css" rel="stylesheet">
   </head>
 
   <body ng-controller="PharmFinderController as searchCtrl">
-    <div>
-      <form class="form-horizontal">
-        <input type="text" ng-model="searchText">
-        <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
-      </form>
-    <table class="table table-bordered table-striped">
+    <div class="row">
+      <div class="col-md-6">
+        <div class='tableSection'>
+          <form class="form-horizontal">
+            <input type="text" ng-model="searchText">
+            <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
+          </form>
+        <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <td>
+              Name
+            </td>
+            <td>
+              NACS
+            </td>
+            <td>
+              Address
+            </td>
+            <td>
+              Telephone number
+            </td>
+          </tr>
+        </thead>
 
-    <thead>
-      <tr>
-        <td>
-          Name
-        </td>
-        <td>
-          NACS
-        </td>
-        <td>
-          Address
-        </td>
-        <td>
-          Telephone number
-        </td>
-      </tr>
-    </thead>
+        <tbody>
+          <tr ng-repeat="pharmacy in searchCtrl.searchResult.data | filter:searchText">
+            <td>{{ pharmacy[0] }}</td>
+            <td>{{ pharmacy[1] }}</td>
+            <td><button class="addressLink" onclick="mapAddress()" data-address="{{pharmacy[2]}} {{pharmacy[5]}} {{pharmacy[6]}} {{ pharmacy[7] }}"> {{pharmacy[2]}} {{pharmacy[5]}} {{pharmacy[6]}} {{ pharmacy[7] }}</button></td>
+            <td>{{ pharmacy[8]}}</td>
+          </tr>
+        </tbody>
 
-    <tbody>
-      <tr ng-repeat="pharmacy in searchCtrl.searchResult.data | filter:searchText">
-        <td>{{ pharmacy[0] }}</td>
-        <td>{{ pharmacy[1] }}</td>
-        <td>{{pharmacy[2]}} {{pharmacy[5]}} {{pharmacy[6]}} {{ pharmacy[7] }}</td>
-        <td>{{ pharmacy[8]}}</td>
-      </tr>
-    </tbody>
-
-  </table>
+      </table>
     </div>
+      </div>
+      <div class="col-md-6">
+      <div id="map"></div>
+      <script src="js/map.js"></script>
+    </div>
+  </div>
   </body>
 </html>

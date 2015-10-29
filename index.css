@@ -1,0 +1,20 @@
+.tableSection {
+  margin-left: 5px;;
+}
+
+#map {
+  position: fixed;
+  /*border-style: solid;
+  border-width: 5px;
+  border-color: red;*/
+  margin: auto;
+  padding: none, !important;
+  width: 100%;
+  height: 650px;
+}
+
+.col-md-6 {
+  /*padding: none;*/
+  padding-left: none, !important;
+  padding-right: none, !important;
+}
