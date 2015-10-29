@@ -1,0 +1,1 @@
+var pharmFinder = angular.module('PharmFinder', ['ngResource'])
