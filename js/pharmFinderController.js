@@ -1,25 +1,25 @@
-pharmFinder.controller('PharmFinderController', [function(){
+pharmFinder.controller('PharmFinderController', ['$resource', 'pharmSearchFactory', function($resource, pharmSearchFactory){
 
-var self = this;
+  var self = this;
 
-self.doSearch = function() {
-  self.searchResult = {
-    "items": [
-     {
-        "name": "boots",
-        "postcode": "SW1Y5DG",
-        "telephone": "123545398"
-      },
-      {
-        "name": "superdrug",
-        "postcode": "SW1Y5DG",
-        "telephone": "123545398"
-      }
-    ]
+  function searchEngine() {
+    pharmSearchFactory.searchEngine().then(function(res) {
+      return res.data[0];
+    });
+  }
+
+  var searchResource = $resource('http://www.serket.uk/pharmacies/pharmacylist-format');
+
+  self.doSearch = function() {
+    // self.searchResult = searchResource.get(
+    //   { q: self.searchTerm }
+    // );
+    pharmSearchFactory.searchEngine()
+      .then(function(response) {
+        self.searchResult = response.data[0];
+        console.log(self.searchResult);
+      })
+    console.log(self.searchResult);
   };
-};
-
-
-
 
 }]);

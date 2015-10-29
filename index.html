@@ -9,6 +9,7 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="js/app.js"></script>
     <script src="js/pharmFinderController.js"></script>
+    <script src="js/pharmSearchFactory.js"></script>
   </head>
 
   <body ng-controller="PharmFinderController as searchCtrl">
@@ -17,11 +18,10 @@
         <input type="text" ng-model="searchCtrl.searchTerm">
         <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
       </form>
+      {{searchCtrl.searchResult}}
       <ul class="list-group">
-        <li ng-repeat="pharmacy in searchCtrl.searchResult.items">
-          {{pharmacy.name}}
-          {{pharmacy.postcode}}
-          {{pharmacy.telephone}}
+        <li ng-repeat="element in searchCtrl.searchResult">
+          {{element}} element
         </li>
       </ul>
       </ul>
