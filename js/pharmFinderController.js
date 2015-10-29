@@ -4,8 +4,9 @@ pharmFinder.controller('PharmFinderController', ['$resource', 'pharmSearchFactor
 
   var searchResource = $resource('http://www.serket.uk/pharmacies/pharmacylist-format');
 
+  self.searchResult = searchResource.get();
+
   self.doSearch = function() {
-    self.searchResult = searchResource.get();
     console.log(self.searchResult);
   };
 
