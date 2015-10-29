@@ -1,21 +1,29 @@
-pharmFinder.controller('PharmFinderController', ['$resource', 'pharmSearchFactory', function($resource, pharmSearchFactory){
+pharmFinder.controller('PharmFinderController', ['$http', 'pharmSearchFactory', function($http, pharmSearchFactory){
 
   var self = this;
 
-  var searchResource = $resource('http://www.serket.uk/pharmacies/pharmacylist-format');
+  var searchResource = $http.get('http://www.serket.uk/pharmacies/pharmacylist-format').then(function(response) {
+    self.searchResult = response.data.data.map(function(pharmacy) {
+      var pharmacyAddress = [pharmacy[2], pharmacy[5], pharmacy[6], pharmacy[7]].join(', ');
+      return { name: pharmacy[0], NACS: pharmacy[1], address: pharmacyAddress, telephone: pharmacy[8]}
+    });
+  });
 
-  self.searchResult = searchResource.get();
+  // self.searchResult = searchResource;
 
-  // self.hash = {}
+  // console.log(self.searchResult);
 
-  // data = self.searchResult.data;
-
-  // for(var i = 0; i < data.length; i++){
-  //   self.hash[i][name] = data[0][0]
+  // var searchData = function(){
+  //   searchResource.get().$promise.then(function(response){
+  //       return response;
+  //   });
   // }
 
-  self.doSearch = function() {
-    console.log(self.searchResult);
-  };
+  // console.log(searchData());
+
+  // // self.searchResult = self.searchData.map(function(pharmacy) {
+  //   var pharmacyAddress = (pharmacy[2], pharmacy[5], pharmacy[6], pharmacy[7]).join(', ');
+  //   return { name: pharmacy[0], NACS: pharmacy[1], address: pharmacyAddress, telephone: pharmacy[8]}
+  // });
 
 }]);
