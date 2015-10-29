@@ -6,6 +6,14 @@ pharmFinder.controller('PharmFinderController', ['$resource', 'pharmSearchFactor
 
   self.searchResult = searchResource.get();
 
+  // self.hash = {}
+
+  // data = self.searchResult.data;
+
+  // for(var i = 0; i < data.length; i++){
+  //   self.hash[i][name] = data[0][0]
+  // }
+
   self.doSearch = function() {
     console.log(self.searchResult);
   };
