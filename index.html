@@ -18,12 +18,10 @@
         <input type="text" ng-model="searchCtrl.searchTerm">
         <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
       </form>
-      {{searchCtrl.searchResult}}
-      <ul class="list-group">
-        <li ng-repeat="element in searchCtrl.searchResult">
-          {{element}} element
+      <ul>
+        <li ng-repeat="pharmacy in searchCtrl.searchResult track by $index" >
+          <div>{{pharmacy}}</div>
         </li>
-      </ul>
       </ul>
     </div>
   </body>

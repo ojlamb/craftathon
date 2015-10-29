@@ -2,12 +2,6 @@ pharmFinder.controller('PharmFinderController', ['$resource', 'pharmSearchFactor
 
   var self = this;
 
-  function searchEngine() {
-    pharmSearchFactory.searchEngine().then(function(res) {
-      return res.data[0];
-    });
-  }
-
   var searchResource = $resource('http://www.serket.uk/pharmacies/pharmacylist-format');
 
   self.doSearch = function() {
@@ -16,10 +10,15 @@ pharmFinder.controller('PharmFinderController', ['$resource', 'pharmSearchFactor
     // );
     pharmSearchFactory.searchEngine()
       .then(function(response) {
-        self.searchResult = response.data[0];
+        pharmacyData = response.data[0];
+        var resultsArray = [];
+        for(var i = 0; i < pharmacyData.length; i++) {
+          resultsArray.push(pharmacyData[i])
+        }
+        self.searchResult = pharmacyData
         console.log(self.searchResult);
       })
-    console.log(self.searchResult);
+      console.log(self.searchResult);
   };
 
 }]);
