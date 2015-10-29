@@ -18,12 +18,12 @@
         <button class="btn">Search</button>
       </form>
       <ul class="list-group">
-        <li class="list-group-item">
-
+        <li ng-repeat="pharmacy in searchCtrl.searchResult.items">
+          {{pharmacy.name}}
+          {{pharmacy.postcode}}
+          {{pharmacy.telephone}}
         </li>
-        <li class="list-group-item">
-
-        </li>
+      </ul>
       </ul>
     </div>
   </body>
