@@ -43,22 +43,29 @@
             </td>
           </tr>
         </thead>
-
-        <tbody>
-          <tr ng-repeat="pharmacy in searchCtrl.searchResult.data | filter:searchText">
-            <td>{{ pharmacy[0] }}</td>
-            <td>{{ pharmacy[1] }}</td>
-            <td><button class="addressLink" onclick="mapAddress()" data-address="{{pharmacy[2]}} {{pharmacy[5]}} {{pharmacy[6]}} {{ pharmacy[7] }}"> {{pharmacy[2]}} {{pharmacy[5]}} {{pharmacy[6]}} {{ pharmacy[7] }}</button></td>
-            <td>{{ pharmacy[8]}}</td>
-          </tr>
-        </tbody>
-
+    <div>
+      <form class="form-horizontal">
+        Pharmacy name: <input type="text" ng-model="search.name">
+        Address: <input type="text" ng-model="search.address">
+        NACS: <input type="text" ng-model="search.NACS">
+      </form>
+    <table class="table table-bordered table-striped">
       </table>
     </div>
       </div>
       <div class="col-md-6">
       <div id="map"></div>
       <script src="js/map.js"></script>
+    <tbody>
+      <tr ng-repeat="pharmacy in searchCtrl.searchResult | filter:search:strict | limitTo: 50">
+        <td>{{ pharmacy.name }}</td>
+        <td>{{ pharmacy.NACS }}</td>
+        <td><button class="addressLink" onclick="mapAddress()"> {{pharmacy.address}}</button></td>
+        <td>{{ pharmacy.telephone }}</td>
+      </tr>
+    </tbody>
+
+  </table>
     </div>
   </div>
   </body>
