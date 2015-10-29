@@ -1,6 +1,5 @@
-pharmFinder.controller('PharmFinderController', ['$scope', function($scope){
+pharmFinder.controller('PharmFinderController', [function(){
 
-  var self = this;
 
 
 }]);
