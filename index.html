@@ -14,8 +14,8 @@
   <body ng-controller="PharmFinderController as searchCtrl">
     <div>
       <form class="form-horizontal">
-        <input type="text" >
-        <button class="btn">Search</button>
+        <input type="text" ng-model="searchCtrl.searchTerm">
+        <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
       </form>
       <ul class="list-group">
         <li ng-repeat="pharmacy in searchCtrl.searchResult.items">

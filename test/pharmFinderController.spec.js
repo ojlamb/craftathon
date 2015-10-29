@@ -7,7 +7,7 @@ describe('PharmFinderController', function() {
     ctrl = $controller('PharmFinderController');
   }));
 
-  xit('initialises with an empty search result and term', function() {
+  it('initialises with an empty search result and term', function() {
     expect(ctrl.searchResult).toBeUndefined();
     expect(ctrl.searchTerm).toBeUndefined();
   });
@@ -28,6 +28,8 @@ describe('PharmFinderController', function() {
   ];
 
   it('displays search results', function() {
+    ctrl.searchTerm = 'boots';
+    ctrl.doSearch();
     expect(ctrl.searchResult.items).toEqual(items);
   });
 });
