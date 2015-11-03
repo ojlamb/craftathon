@@ -20,16 +20,19 @@
 
   <body ng-controller="PharmFinderController as searchCtrl">
     <div class="container-fluid">
-      <div class="row">
-        <h2 class="title">Serket Phamacy Search</h2>
-      </div>
+      <nav class="navbar-inverse navbar-fixed-top sticky">
+        <div class="row">
+          <h2 class="title"><img src="images/serket.png" alt="serket logo" style="width:115px;height:40px;">   Pharmacy Search</h2>
+        </div>
+      </nav>
       <div class="row">
         <div class="col-md-6">
           <div class='tableSection'>
             <form class="form-horizontal">
-              Pharmacy name: <input type="text" ng-model="search.name">
-              Address: <input type="text" ng-model="search.address">
-              NACS: <input type="text" ng-model="search.NACS">
+              Search:
+              <input type="text" ng-model="search.name" placeholder="Phamacy Name:">
+              <input type="text" ng-model="search.address" placeholder="Address:">
+              <input type="text" ng-model="search.NACS" placeholder="NACS">
             </form>
           <table class="table table-bordered table-striped">
           <thead>

@@ -1,28 +1,49 @@
+/*********************************************************************************/
+/* Form/tableSection                                                                     */
+/*********************************************************************************/
+
 .tableSection {
-  margin-left: 5px;;
+  margin-top: 50px
+  margin-left: 5px;
+  padding-top: 10px;
 }
 
-#map {
-  position: fixed;
-  /*border-style: solid;
-  border-width: 5px;
-  border-color: red;*/
-  margin: auto;
-  padding: none, !important;
-  width: 50%;
-  height: 650px;
+.form-horizontal{
+  margin-top: 50px;
+  padding-bottom: 10px;
 }
+
+/*********************************************************************************/
+/* Header                                                                         */
+/*********************************************************************************/
 .title{
   text-align: center;
   margin-top:0;
   padding-top: 5px;
+  margin-bottom: 0;
   height: 50px;
   padding-bottom: 0;
   background-color: #0C0A3E;
   color: #EAEAEA;
 }
 
+.title h2{
+  padding-top: 15px;
+}
+
 .col-md-6 {
   padding-left: none, !important;
   padding-right: none, !important;
+}
+/*********************************************************************************/
+/* Map                                                                         */
+/*********************************************************************************/
+
+#map {
+  position: fixed;
+  margin: auto;
+  padding: none, !important;
+  width: 50%;
+  height: 650px;
+  margin-top: 50px;
 }
