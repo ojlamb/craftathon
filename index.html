@@ -19,46 +19,50 @@
   </head>
 
   <body ng-controller="PharmFinderController as searchCtrl">
-    <div class="row">
-      <div class="col-md-6">
-        <div class='tableSection'>
-          <form class="form-horizontal">
-            Pharmacy name: <input type="text" ng-model="search.name">
-            Address: <input type="text" ng-model="search.address">
-            NACS: <input type="text" ng-model="search.NACS">
-          </form>
-        <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <td>
-              Name
-            </td>
-            <td>
-              NACS
-            </td>
-            <td>
-              Address
-            </td>
-            <td>
-              Telephone number
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="pharmacy in searchCtrl.searchResult | filter:search:strict | limitTo: 50">
-            <td>{{ pharmacy.name }}</td>
-            <td>{{ pharmacy.NACS }}</td>
-            <td><button class="addressLink" onclick="mapAddress()">{{pharmacy.address}}</button></td>
-            <td>{{ pharmacy.telephone}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <h2 class="title">Serket Phamacy Search</h2>
       </div>
-      <div class="col-md-6">
-      <div id="map"></div>
-      <script src="js/map.js"></script>
+      <div class="row">
+        <div class="col-md-6">
+          <div class='tableSection'>
+            <form class="form-horizontal">
+              Pharmacy name: <input type="text" ng-model="search.name">
+              Address: <input type="text" ng-model="search.address">
+              NACS: <input type="text" ng-model="search.NACS">
+            </form>
+          <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <td>
+                Name
+              </td>
+              <td>
+                NACS
+              </td>
+              <td>
+                Address
+              </td>
+              <td>
+                Telephone number
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="pharmacy in searchCtrl.searchResult | filter:search:strict | limitTo: 50">
+              <td>{{ pharmacy.name }}</td>
+              <td>{{ pharmacy.NACS }}</td>
+              <td><button class="addressLink" onclick="mapAddress()">{{pharmacy.address}}</button></td>
+              <td>{{ pharmacy.telephone}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+        </div>
+        <div class="col-md-6">
+        <div id="map"></div>
+        <script src="js/map.js"></script>
+      </div>
     </div>
-  </div>
   </body>
 </html>

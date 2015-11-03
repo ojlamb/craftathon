@@ -12,9 +12,17 @@
   width: 50%;
   height: 650px;
 }
+.title{
+  text-align: center;
+  margin-top:0;
+  padding-top: 5px;
+  height: 50px;
+  padding-bottom: 0;
+  background-color: #0C0A3E;
+  color: #EAEAEA;
+}
 
 .col-md-6 {
-  /*padding: none;*/
   padding-left: none, !important;
   padding-right: none, !important;
 }
