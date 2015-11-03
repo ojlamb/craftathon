@@ -1,4 +1,4 @@
-pharmFinder.controller('PharmFinderController', ['$http', 'pharmSearchFactory', function($http, pharmSearchFactory){
+pharmFinder.controller('PharmFinderController', ['$http', 'pharmSearchFactory','$scope', function($http, pharmSearchFactory, $scope){
 
   var self = this;
 
@@ -9,4 +9,8 @@ pharmFinder.controller('PharmFinderController', ['$http', 'pharmSearchFactory', 
     });
   });
 
+  $scope.selectedIndex = 0;
+  $scope.itemClicked = function ($index) {
+     $scope.selectedIndex = $index;
+   }
 }]);

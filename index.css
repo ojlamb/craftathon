@@ -3,7 +3,7 @@
 /*********************************************************************************/
 
 .tableSection {
-  margin-top: 50px
+  margin-top: 50px;
   margin-left: 5px;
   padding-top: 10px;
 }
@@ -11,6 +11,11 @@
 .form-horizontal{
   margin-top: 50px;
   padding-bottom: 10px;
+}
+
+.selected-pharm {
+  color: #0C0A3E;
+  font-weight: bolder;
 }
 
 /*********************************************************************************/

@@ -22,8 +22,7 @@ $(document).ready(function() {
             }),
             draggable: false
         }).addTo(map);
-    })
-  });
-
+      })
+    });
   };
 });

@@ -52,7 +52,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="pharmacy in searchCtrl.searchResult | filter:search:strict | limitTo: 50">
+            <tr ng-repeat="pharmacy in searchCtrl.searchResult | filter:search:strict | limitTo: 50"
+            ng-class="{ 'selected-pharm': $index == selectedIndex }" ng-click="itemClicked($index)">
               <td>{{ pharmacy.name }}</td>
               <td>{{ pharmacy.NACS }}</td>
               <td><button class="addressLink" onclick="mapAddress()">{{pharmacy.address}}</button></td>
