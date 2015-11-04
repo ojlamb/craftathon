@@ -1,7 +1,7 @@
 # Craftathon
 The Craftathon is a 1-day event where Makers Academy alumni assemble in teams to solve a problem
 given by a real company. For craftathon 3 the pharmacy app company [Serket](http://www.serket.uk/) provided the challenge to enable users to search for pharmacies easily, view useful information and see where they are located on a map.
-## View our live demo [here] (http://floating-beyond-6084.herokuapp.com/)
+####View our live demo [here] (http://floating-beyond-6084.herokuapp.com/)
 
 ##Challenge information
 Here is an api from Serket, containing pharmacies around England, their name, address, telephone number and NACS code (i.e. FJJ79): http://www.serket.uk/pharmacies/pharmacylist-format
